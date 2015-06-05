@@ -1,0 +1,10 @@
+key: TRELLO_KEY
+token: TRELLO_TOKEN
+boardId: TRELLO_BOARD_ID
+listIds:
+  - TRELLO_LIST_ID_1
+  - TRELLO_LIST_ID_2
+  - TRELLO_LIST_ID_3
+slackDomain: SLACK_DOMAIN
+slackbotToken: SLACKBOT_TOKEN
+channel: SLACK_CHANNEL_NAME
