@@ -38,7 +38,7 @@ function postList(err) {
   console.log("Found " + totalCards + " cards");
   console.log("Posting");
   path = 'https://' + slackDomain + '.slack.com/services/hooks/slackbot?token=' + slackbotToken + '&channel=' + channel;
-  request.post(path, {form:{strikeQueue: totalCards}});
+  request.post(path, {form:{queue: totalCards}});
   console.log("Complete!");
 }
 
