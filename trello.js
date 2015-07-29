@@ -21,6 +21,11 @@ var baseUrl = 'https://api.trello.com';
 
 // Loop through each list ID and get the total number of cards in queue
 var totalCards = 0;
+var post = false;
+
+if (process.argv[2] != null) {
+	post = true;
+}
 
 function getList(id, callback) {
   console.log("Checking " + id);
@@ -36,9 +41,11 @@ function getList(id, callback) {
 
 function postList(err) {
   console.log("Found " + totalCards + " cards");
-  console.log("Posting");
-  path = 'https://' + slackDomain + '.slack.com/services/hooks/slackbot?token=' + slackbotToken + '&channel=' + channel;
-  request.post(path, {form:{queue: totalCards}});
+  if (post) {
+    console.log("Posting");
+    path = 'https://' + slackDomain + '.slack.com/services/hooks/slackbot?token=' + slackbotToken + '&channel=' + channel;
+    request.post(path, {form:{queue: totalCards}});
+  }
   console.log("Complete!");
 }
 
